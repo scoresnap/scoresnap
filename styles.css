@@ -1,0 +1,233 @@
+/* Réinitialisation des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fond d'écran dynamique avec animation de dégradé */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Animation du fond d'écran */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Conteneur principal */
+.container {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 3px solid #ff7e5f;
+    padding: 5px;
+    animation: bounce 2s infinite;
+}
+
+/* Animation de rebond */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Titre principal */
+h1 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 15px;
+    animation: slideIn 1s ease-out;
+    display: inline-block;
+    position: relative;
+}
+
+/* Animation de glissement */
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Effet de survol du titre */
+h1:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom right;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff7e5f;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+
+/* Description */
+.description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+    animation: pulse 2s infinite;
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Groupe de champs de saisie */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Étiquettes des champs */
+label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Champs de saisie */
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus sur les champs de saisie */
+input:focus {
+    border-color: #ff7e5f;
+    box-shadow: 0 0 8px rgba(255, 126, 95, 0.5);
+    outline: none;
+}
+
+/* Bouton de soumission */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Effet au survol du bouton */
+button:hover {
+    background-color: #feb47b;
+    transform: scale(1.05);
+}
+
+/* Indicateur de chargement */
+#loading {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ff7e5f;
+    display: none;
+}
+
+/* Pied de page */
+footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Liens du pied de page */
+footer a {
+    color: #ff7e5f;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Lien de mot de passe oublié */
+#forgot-password {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ff7e5f;
+    text-decoration: none;
+    text-align: left;
+}
+
+#forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Section "À propos de moi" */
+.about-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: left;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Animation d'apparition de la section "À propos de moi" */
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Titre de la section "À propos de moi" */
+.about-section h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Contenu de la section "À propos de moi" */
+.about-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+}

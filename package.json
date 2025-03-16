@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.21.2",
+    "node-fetch": "^2.7.0",
+    "node-telegram-bot-api": "^0.66.0"
+  },
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "name": "snap",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
